@@ -1,9 +1,6 @@
 README.md
 # Pseudocode
-- run application
-- then list tasks
-- ask user for their response
-- from there act upon action
+- run application with action (ARGV)
 
 # 1 - What is the name of the most sold item? (most_sold item)
  + retrive all purchases from Driftrock API

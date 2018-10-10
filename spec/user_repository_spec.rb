@@ -29,4 +29,17 @@ describe "UserRepository" do
       expect(subject.user_email(selected_user)).to eq("travis_kshlerin@wunsch.net")
     end
   end
+
+  describe "#find_by_email" do
+    it "..." do
+      subject = UserRepository.new("https://driftrock-dev-test.herokuapp.com/users")
+      users = subject.all
+      email_1 = "pearlie.yost@greenholt.biz"
+      email_2 = "walter.fermin@braunhuel.org"
+      expect(subject.find_by_email(users, email_1)[0].first_name).to eq("Pearlie")
+      expect(subject.find_by_email(users, email_2)[0].last_name).to eq("Walter")
+    end
+  end
+
+
 end
