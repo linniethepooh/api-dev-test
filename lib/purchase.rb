@@ -2,19 +2,6 @@ require_relative "parse_driftrock"
 
 class Purchase
 
-  def self.most_sold
-    # 1. Parse Driftrock API (purchase collection)
-    purchase_results = ParseDriftrock.new("purchases").request
-    # 2. Count all "item" values
-    counted = count_items(purchase_results)
-    # 3. Order counted items
-    ordered_list = order_items(counted)
-    # 4. Identify most popular item from list
-    result = most_popular(ordered_list)
-    # 5. Return result
-    return result
-  end
-
   private
 
   def self.count_items(purchase_results)
