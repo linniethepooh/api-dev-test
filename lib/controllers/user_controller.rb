@@ -36,9 +36,9 @@ class UserController
     # 4. Find user's ID
     user_id = @user_repository.find_id(selected_user)
     # 5. Parse Driftrock API (purchase collection)
-    items = @purchase_repository.all
+    purchases = @purchase_repository.all
     # 6. Find purchases by user_id from parsed purchase results
-    selected_purchases = @purchase_repository.find_purchases(items, user_id)
+    selected_purchases = @purchase_repository.find_purchases(purchases, user_id)
     # 7. Add up spend totals
     result = @purchase_repository.total_spend(selected_purchases)
     # 8. Return total

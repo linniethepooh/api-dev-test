@@ -1,5 +1,6 @@
 README.md
 # Pseudocode
+
 - run application with action (ARGV)
 
 # 1 - What is the name of the most sold item? (most_sold item)
@@ -20,18 +21,16 @@ README.md
  + retrive all purchases from Driftrock API
  + return purchase results
  + search purchase results by "users_id"
- - return found purchases with "spend"
- - quantify spend figure
- - return total figure
+ + return found purchases with "spend"
+ + quantify spend figure
+ + return total figure
 
 # 3 - What is the email address of the most loyal user (most purchases)?
-- retrive all purchases from Driftrock API
-- return purchase results
-- count "user_id" from purchase results
-- return highest count "user_id"
-- search users results by "users_id"
-- return result
-- return "email" of user
++ retrive all purchases from Driftrock API
++ return purchase results
++ count "user_id" from purchase results
++ return highest count "user_id"
++ search users results by "users_id"
++ return result
++ return "email" of user
 
-# 4 - Stop and exit the program (stop)
- - exit programme

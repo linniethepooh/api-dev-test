@@ -46,7 +46,7 @@ class PurchaseRepository
     selected_purchases.each do |purchase|
       total = total + purchase.spend.to_f
     end
-    total.round(2)
+    total
   end
 
   private
