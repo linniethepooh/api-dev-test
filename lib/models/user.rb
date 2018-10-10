@@ -5,7 +5,7 @@ class User
     @id = attributes[:id]
     @first_name = attributes[:first_name]
     @last_name = attributes[:last_name]
-    @phone = attributes[:last_name]
+    @phone = attributes[:phone]
     @email = attributes[:email]
   end
 end

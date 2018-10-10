@@ -16,4 +16,9 @@ describe 'Purchase', :purchase do
     purchase = Purchase.new({ item: "Synergistic Concrete Pants" })
     expect(purchase.item).to eq("Synergistic Concrete Pants")
   end
+
+  it "#spend" do
+    purchase = Purchase.new({ spend: "76.06" })
+    expect(purchase.spend).to eq("76.06")
+  end
 end

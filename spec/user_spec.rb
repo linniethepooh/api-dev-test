@@ -1,34 +1,34 @@
-# require './lib/user'
-# require './lib/purchase'
+require_relative '../lib/models/user'
 
-describe 'User' do
-
-  context 'most_loyal' do
-    it 'returns travis_kshlerin@wunsch.net when asked most_loyal' do
-      subject = User.most_loyal
-      expect(subject).to eq ('travis_kshlerin@wunsch.net')
-    end
+describe 'user', :user do
+  it "should be initialized with a hash of attributes" do
+    attributes = { id: "KZHR-1H35-2IH8-JXYN", first_name: "Quincy", last_name: "Schimmel", phone: "186.301.6921 x948", email: "schimmel_quincy@ernser.io" }
+    user = User.new(attributes)
+    expect(user).to be_a(User)
   end
 
-  context 'total_spend' do
-    it 'returns 336.76 when asked for travis_kshlerin@wunsch.net total_spend' do
-      subject = User.total_spend('travis_kshlerin@wunsch.net')
-      expect(subject).to eq (336.76)
-    end
+  it "#id" do
+    user = User.new({ id: "KZHR-1H35-2IH8-JXYN" })
+    expect(user.id).to eq("KZHR-1H35-2IH8-JXYN" )
+  end
 
-    it 'returns 357.69 when asked for elouise_oberbrunner@bradtke.io total_spend' do
-      subject = User.total_spend('elouise_oberbrunner@bradtke.io')
-      expect(subject).to eq (357.69)
-    end
+  it "#first_name" do
+    user = User.new({ first_name: "Quincy" })
+    expect(user.first_name).to eq("Quincy")
+  end
 
-    it 'returns 139.25 when asked for langosh.tierra@erdman.co total_spend' do
-      subject = User.total_spend('langosh.tierra@erdman.co')
-      expect(subject).to eq (139.25)
-    end
+  it "#last_name" do
+    user = User.new({ last_name: "Schimmel" })
+    expect(user.last_name).to eq("Schimmel")
+  end
 
-    it 'returns 191.25 when asked for pagac.malvina@okuneva.co total_spend' do
-      subject = User.total_spend('pagac.malvina@okuneva.co')
-      expect(subject).to eq (191.25)
-    end
+  it "#phone" do
+    user = User.new({ phone: "186.301.6921 x948" })
+    expect(user.phone).to eq("186.301.6921 x948")
+  end
+
+  it "#email" do
+    user = User.new({ email: "schimmel_quincy@ernser.io" })
+    expect(user.email).to eq("schimmel_quincy@ernser.io")
   end
 end
