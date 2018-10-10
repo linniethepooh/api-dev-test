@@ -1,23 +1,24 @@
-require './lib/purchase'
-require './lib/user'
-require_relative "./lib/repositories/item_repository"
-require_relative "./lib/controllers/item_controller"
-require_relative "router"
-# ARGV.each do |action|
-#   if action == 'most_sold'
-#     puts Purchase.most_sold # most_sold
-#   elsif action == 'most_loyal'
-#     puts User.most_loyal # most_loyal
-#   else
-#     email = ARGV[1]
-#     puts User.total_spend(email) #total_spent
-#   end
-# end
+require_relative "./lib/repositories/user_repository"
+require_relative "./lib/controllers/user_controller"
+require_relative "./lib/repositories/purchase_repository"
+require_relative "./lib/controllers/purchase_controller"
 
-json = "https://driftrock-dev-test.herokuapp.com/purchases"
-item_repository = ItemRepository.new(json)
-item_controller = ItemController.new(item_repository)
-router = Router.new(item_controller)
+purchases_json = "https://driftrock-dev-test.herokuapp.com/purchases"
+purchase_repository = PurchaseRepository.new(purchases_json)
+purchase_controller = PurchaseController.new(purchase_repository)
 
-router.run
+users_json = "https://driftrock-dev-test.herokuapp.com/users"
+user_repository = UserRepository.new(users_json)
+user_controller = UserController.new(user_repository, purchase_repository)
+
+ARGV.each do |action|
+  if action == 'most_sold'
+    purchase_controller.most_sold
+  elsif action == 'most_loyal'
+    user_controller.most_loyal
+  else
+    email = ARGV[1]
+    user_controller.total_spend(email)
+  end
+end
 

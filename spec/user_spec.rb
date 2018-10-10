@@ -1,5 +1,5 @@
-require './lib/user'
-require './lib/purchase'
+# require './lib/user'
+# require './lib/purchase'
 
 describe 'User' do
 

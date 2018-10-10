@@ -1,4 +1,4 @@
-class Item
+class Purchase
   attr_reader :user_id, :item, :spend
 
   def initialize(attributes = {})

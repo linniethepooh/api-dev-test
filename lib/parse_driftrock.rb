@@ -7,7 +7,7 @@ class ParseDriftrock
     @collection = collection
   end
 
-  def request
+  def request(collection)
     response = open("https://driftrock-dev-test.herokuapp.com/#{@collection}")
     data_hash = JSON.parse(response.read)
     results = data_hash["data"]
