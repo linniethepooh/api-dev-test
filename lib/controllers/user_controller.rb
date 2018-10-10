@@ -3,21 +3,21 @@ require_relative "../views/view"
 
 
 class UserController
-  def initialize(user_repository, item_repository)
+  def initialize(user_repository, purchase_repository)
     @user_repository = user_repository
-    @item_repository = item_repository
+    @purchase_repository = purchase_repository
     @view = View.new
   end
 
   def most_loyal
     # 1. Parse Driftrock API (purchase collection)
-    items = @item_repository.all
+    purchases = @purchase_repository.all
     # 2. Count all "user_id" values
-    counted = @item_repository.count_user_id(items)
+    user_id_counted = @purchase_repository.count_user_id(purchases)
     # 3. Order counted user_id
-    ordered_list = @item_repository.order_items(counted)
+    ordered_list = @purchase_repository.order_items(user_id_counted)
     # 4. Identify most popular item from list
-    user_id = @item_repository.most_popular(ordered_list)
+    user_id = @purchase_repository.most_popular(ordered_list)
     # 5. Parse Driftrock API (user collection)
     users = @user_repository.all
     # 6. Find purchases by user_id from parsed purchase results
@@ -36,11 +36,11 @@ class UserController
     # 4. Find user's ID
     user_id = @user_repository.find_id(selected_user)
     # 5. Parse Driftrock API (purchase collection)
-    items = @item_repository.all
+    items = @purchase_repository.all
     # 6. Find purchases by user_id from parsed purchase results
-    selected_purchases = @item_repository.find_purchases(items, user_id)
+    selected_purchases = @purchase_repository.find_purchases(items, user_id)
     # 7. Add up spend totals
-    result = @item_repository.total_spend(selected_purchases)
+    result = @purchase_repository.total_spend(selected_purchases)
     # 8. Return total
     @view.display(result)
   end

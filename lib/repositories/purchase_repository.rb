@@ -30,11 +30,11 @@ class PurchaseRepository
   end
 
   def order_items(counted)
-    counted.sort_by { |key, val| val }.reverse.to_h
+    counted.sort_by { |key, val| val }.reverse
   end
 
   def most_popular(ordered_list)
-    ordered_list.keys.first
+    ordered_list.first[0]
   end
 
   def find_purchases(purchases, user_id)
