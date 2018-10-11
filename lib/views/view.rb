@@ -1,5 +1,6 @@
+# View
 class View
   def display(result)
-    result.to_s
+    puts "#{result}"
   end
 end

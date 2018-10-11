@@ -1,10 +1,10 @@
 require_relative '../models/user'
 require 'open-uri'
 require 'json'
-
+# UserRepository
 class UserRepository
   def initialize(user_json)
-    @users = [] # <--- <User> instances
+    @users = [] # User instances
     @user_json = user_json
     parse_json
   end

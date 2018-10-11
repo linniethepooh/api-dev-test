@@ -1,10 +1,10 @@
 require_relative '../models/purchase'
 require 'open-uri'
 require 'json'
-
+# PurchaseRepository
 class PurchaseRepository
   def initialize(purchase_json)
-    @purchases = [] # <--- <Purchase> instances
+    @purchases = [] # Purchase instances
     @purchase_json = purchase_json
     parse_json
   end
@@ -15,22 +15,18 @@ class PurchaseRepository
 
   def count_item(purchases)
     counts = Hash.new(0)
-    purchases.each do |purchase|
-      counts[purchase.item] += 1
-    end
+    purchases.each { |purchase| counts[purchase.item] += 1 }
     counts
   end
 
   def count_user_id(purchases)
     counts = Hash.new(0)
-    purchases.each do |purchase|
-      counts[purchase.user_id] += 1
-    end
+    purchases.each { |purchase| counts[purchase.user_id] += 1 }
     counts
   end
 
   def order_items(counted)
-    counted.sort_by { |key, val| val }.reverse
+    counted.sort_by { |_key, val| val }.reverse
   end
 
   def most_popular(ordered_list)
@@ -43,9 +39,7 @@ class PurchaseRepository
 
   def total_spend(selected_purchases)
     total = 0
-    selected_purchases.each do |purchase|
-      total += purchase.spend.to_f
-    end
+    selected_purchases.each { |purchase| total += purchase.spend.to_f }
     total
   end
 

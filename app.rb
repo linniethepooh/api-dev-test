@@ -14,7 +14,6 @@ user_controller = UserController.new(user_repository, purchase_repository)
 command = ARGV
 
 case command[0]
-
 when 'most_sold'
   purchase_controller.most_sold
 when 'most_loyal'
@@ -24,4 +23,3 @@ when 'total_spend'
 else
   puts 'Command not found!'
 end
-

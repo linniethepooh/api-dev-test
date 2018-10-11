@@ -1,3 +1,4 @@
+# Purchase
 class Purchase
   attr_reader :user_id, :item, :spend
 
