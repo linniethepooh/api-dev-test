@@ -1,4 +1,4 @@
-require_relative "../models/user"
+require_relative '../models/user'
 require 'open-uri'
 require 'json'
 
@@ -14,7 +14,7 @@ class UserRepository
   end
 
   def find_by_email(users, email)
-    users.select { |user| user.email == "#{email}" }
+    users.select { |user| user.email == email.to_s }
   end
 
   def find_id(selected_user)
@@ -22,7 +22,7 @@ class UserRepository
   end
 
   def find_user(users, user_id)
-    users.select { |user| user.id == "#{user_id}" }
+    users.select { |user| user.id == user_id.to_s }
   end
 
   def user_email(selected_user)
@@ -34,7 +34,7 @@ class UserRepository
   def parse_json
     response = open(@user_json)
     data_hash = JSON.parse(response.read)
-    results = data_hash["data"]
+    results = data_hash['data']
     results.each do |row|
       user = build_user(row)
       @users << user
@@ -42,11 +42,11 @@ class UserRepository
   end
 
   def build_user(row)
-    row[:id] = row["id"]
-    row[:first_name] = row["first_name"]
-    row[:last_name] = row["last_name"]
-    row[:phone] = row["phone"]
-    row[:email] = row["email"]
+    row[:id] = row['id']
+    row[:first_name] = row['first_name']
+    row[:last_name] = row['last_name']
+    row[:phone] = row['phone']
+    row[:email] = row['email']
     User.new(row)
   end
 end

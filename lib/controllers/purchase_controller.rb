@@ -1,5 +1,5 @@
-require_relative "../models/purchase.rb"
-require_relative "../views/view"
+require_relative '../models/purchase.rb'
+require_relative '../views/view'
 
 class PurchaseController
   def initialize(purchase_repository)

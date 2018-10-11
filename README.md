@@ -1,5 +1,16 @@
+## Driftrock's Developer Test
 
+# Task
 
+Create a script that can be run from the command line and can answer the questions listed below. The script accepts one parameter to specify which question it will answer and in some cases an optional argument. The script will print the answer to the console output.
+
+# Tech
+
+- Ruby https://www.ruby-lang.org/en/
+
+- Rspec http://rspec.info/
+
+- RuboCop https://rubocop.readthedocs.io/en/latest/
 
 # Pseudocode
 - run application with action (ARGV)

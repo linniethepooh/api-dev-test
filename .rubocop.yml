@@ -1,0 +1,6 @@
+require: rubocop-rspec
+
+# Offense count: 1
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'

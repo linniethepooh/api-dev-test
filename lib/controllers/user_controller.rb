@@ -1,6 +1,5 @@
-require_relative "../models/user.rb"
-require_relative "../views/view"
-
+require_relative '../models/user.rb'
+require_relative '../views/view'
 
 class UserController
   def initialize(user_repository, purchase_repository)
