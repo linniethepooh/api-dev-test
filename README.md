@@ -1,6 +1,7 @@
-README.md
-# Pseudocode
 
+
+
+# Pseudocode
 - run application with action (ARGV)
 
 # 1 - What is the name of the most sold item? (most_sold item)

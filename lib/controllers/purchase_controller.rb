@@ -16,7 +16,7 @@ class PurchaseController
     ordered_list = @purchase_repository.order_items(items_counted)
     # 4. Identify most popular item from list
     result = @purchase_repository.most_popular(ordered_list)
-    # 5. Return result
+    # 5. Display result in the terminal
     @view.display(result)
   end
 end

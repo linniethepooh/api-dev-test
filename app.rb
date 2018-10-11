@@ -11,14 +11,28 @@ users_json = "https://driftrock-dev-test.herokuapp.com/users"
 user_repository = UserRepository.new(users_json)
 user_controller = UserController.new(user_repository, purchase_repository)
 
-ARGV.each do |action|
-  if action == 'most_sold'
-    purchase_controller.most_sold
-  elsif action == 'most_loyal'
-    user_controller.most_loyal
-  else
-    email = ARGV[1]
-    user_controller.total_spend(email)
-  end
+command = ARGV
+
+case command[0]
+when 'most_sold'
+  purchase_controller.most_sold
+when 'most_loyal'
+  user_controller.most_loyal
+when 'total_spend'
+  user_controller.total_spend(command[1])
+else
+  puts "Command not found!"
 end
+
+
+# ARGV.each do |action|
+#   if action == 'most_sold'
+#     purchase_controller.most_sold
+#   elsif action == 'most_loyal'
+#     user_controller.most_loyal
+#   else
+#     email = ARGV[1]
+#     user_controller.total_spend(email)
+#   end
+# end
 
