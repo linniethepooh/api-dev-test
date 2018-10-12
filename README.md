@@ -5,64 +5,68 @@
 Create a script that can be run from the command line and can answer the questions listed below. The script accepts one parameter to specify which question it will answer and in some cases an optional argument. The script will print the answer to the console output.
 
 # User Stories
+```
+As a user,
+I can see the most sold item for all purchases,
+I want to be able to run a command through the terminal.
 
-How to install
-Clone this repository: $ git clone https://github.com/rolandosorbelli/Driftrock
-Navigate into the folder $ cd driftrock
-Install all the gems running $ bundle install
+As a user,
+I can see the total spent for a specific user email,
+I want to be able to run a command through the terminal.
 
+As a user,
+I can see the most loyal user,
+I want to be able to run a command through the terminal.
+```
 
-# Instructions
+# How to install
 
-To run the app, clone this repo to your local machine and run:
+Navigate into the folder:
+```
+$ cd driftrock-dev-test
+```
 
-ruby app.rb COMMAND PARAMETERS
+Install all the gems running
+```
+$ bundle install
+```
 
 # How to test
 
+To run the app enter the following in the command line:
+```
+ruby app.rb COMMAND PARAMETERS
+```
+Here are the available commands:
 
+most_sold: What was the name of the most sold item? e.g
+```
+ruby app.rb most_sold
+```
+total_spend [EMAIL]: What is the total spend of the user with this email address [EMAIL]? e.g.
+```
+ruby app.rb drift.rock@email.com
+```
+most_loyal: What is the email address of the most loyal user (most purchases)? e.g.
+```
+ruby app.rb most_loyal
+```
+
+# How to test
+
+To test functionality run the command line:
+```
+$ rspec
+```
+To test style run the command line:
+```
+$ rubocop
+```
 
 # Tech
 
-- Ruby(https://www.ruby-lang.org/en/)
+- Ruby (https://www.ruby-lang.org/en/)
+- Rspec (http://rspec.info/)
+- RuboCop (https://rubocop.readthedocs.io/en/latest/)
 
-- Rspec(http://rspec.info/)
-
-- RuboCop(https://rubocop.readthedocs.io/en/latest/)
-
-
-
-# Pseudocode
-  - run application with action (ARGV)
-
- 1 - What is the name of the most sold item? (most_sold item)
- + retrive all purchases from Driftrock API
- + return purchase results
- + list purchases with "items"
- + count "items" from results
- + quantify "item" numbers from results
- + return highest count "item"
- + return name of "item" to command line
-
- 2 - What is the total spend of the user with this email address? (total_spend)
- + retrive all users from Driftrock API
- + return user results
- + ask user for email
- + search users results by "email"
- + retrive that users "user_id"
- + retrive all purchases from Driftrock API
- + return purchase results
- + search purchase results by "users_id"
- + return found purchases with "spend"
- + quantify spend figure
- + return total figure
-
-3 - What is the email address of the most loyal user (most purchases)?
-+ retrive all purchases from Driftrock API
-+ return purchase results
-+ count "user_id" from purchase results
-+ return highest count "user_id"
-+ search users results by "users_id"
-+ return result
-+ return "email" of user
 
